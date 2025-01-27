@@ -62,13 +62,33 @@
                 <h2 class="section-title">Pengalaman Kerja</h2>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-date">2022 - Sekarang</div>
+                        <div class="timeline-date">2023 - Sekarang</div>
                         <div class="timeline-content">
-                            <h3>System Analyst / Senior Programmer</h3>
+                            <h3>Project Manager & Senior Developer</h3>
                             <h4>PT. Teltics Media</h4>
                             <ul>
-                                <li>System Analyst untuk Pengembangan Mobile PBX Apps untuk AIS Telco Company di Bangkok, Thailand</li>
-                                <li>System Analyst untuk Pengembangan Insurance Management System Apps di BNI Life</li>
+                                <li>Deliver Project for Enhancement Mobile PBX Apps. for AIS Telco Company at Bangkok, Thailand</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2019 - 2023</div>
+                        <div class="timeline-content">
+                            <h3>Project Manager</h3>
+                            <h4>PT. IMAG Informasi Solusi</h4>
+                            <ul>
+                                <li>Menyelesaikan Project Implementasi Big Data pada lembaga pemerintahan dengan tim 20 orang dalam waktu 3 bulan</li>
+                                <li>Implementasi infrastruktur Big Data Ecosystem termasuk:
+                                    <ul>
+                                        <li>Server Big Data (3 unit Dell R540, total 120TB storage)</li>
+                                        <li>Switch Manageable Dell 48 port 10G (2 unit)</li>
+                                        <li>Implementasi tools Big Data seperti Yava, HGrid247, HGrid Analytics</li>
+                                        <li>Business Intelligence menggunakan IBM Cognos Analytics</li>
+                                    </ul>
+                                </li>
+                                <li>Development Mobile Apps Indonesia One Search dengan fitur log GPS terintegrasi Big Data</li>
+                                <li>Pre-Sales untuk produk Big Data Ecosystem (Maritime Surveillance, CyberSecurity, Face Recognition)</li>
                             </ul>
                         </div>
                     </div>
@@ -79,12 +99,51 @@
                             <h3>Head of IT / CTO</h3>
                             <h4>PT. DISAX Furny Abadi</h4>
                             <ul>
-                                <li>Membangun aplikasi web & mobile E-Commerce Multi-vendor Marketplace DISAX.id</li>
-                                <li>Memimpin tim 20+ pengembang back-end, front-end, tester, dan staf IT support</li>
+                                <li>Membangun E-Commerce Multi-vendor Marketplace DISAX.id dengan fitur multi-bahasa dan multi-currency</li>
+                                <li>Membangun aplikasi e-Community terintegrasi dengan marketplace (tersedia di Playstore, Appstore, Microsoft Store)</li>
+                                <li>Memimpin tim 20+ developer dan IT support</li>
+                                <li>Mengelola infrastruktur IT dan pengembangan teknologi sesuai tujuan perusahaan</li>
                             </ul>
                         </div>
                     </div>
-                    <!-- Tambahan timeline items bisa ditambahkan di sini -->
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2012 - 2017</div>
+                        <div class="timeline-content">
+                            <h3>IT Product Manager</h3>
+                            <h4>PT. Quantum Penarik</h4>
+                            <ul>
+                                <li>Membangun sistem eLearning dengan fitur quiz, perpustakaan, dan manajemen konten interaktif</li>
+                                <li>Implementasi di 34 SMK di Kepulauan Riau</li>
+                                <li>Pengembangan Sistem Smart Card untuk Kabupaten Merauke</li>
+                                <li>Mengelola server dan infrastruktur IT</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2011 - 2015</div>
+                        <div class="timeline-content">
+                            <h3>Freelance Web Developer</h3>
+                            <h4>Various Online News Startups</h4>
+                            <ul>
+                                <li>Pengembangan website portal berita (KabarBUMN.com, PialangNews.com, dll)</li>
+                                <li>Optimasi SEO dan pengelolaan server Linux</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2004 - 2008</div>
+                        <div class="timeline-content">
+                            <h3>IT Technical Support</h3>
+                            <h4>AMN / Media Putra Computindo</h4>
+                            <ul>
+                                <li>Mengelola 250 unit komputer untuk project SAP Training Pertamina</li>
+                                <li>Koordinasi tim 8+ IT Support Admin</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -134,6 +193,33 @@
             </div>
         </section>
     </main>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+        <div class="chatbot-toggle" onclick="toggleChatbot()">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chatbot-container" id="chatbot">
+            <div class="chatbot-header">
+                <h3>Chat dengan Arvino</h3>
+                <button class="close-btn" onclick="toggleChatbot()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatMessages">
+                <div class="message bot">
+                    <i class="fas fa-robot"></i>
+                    <p>Halo! Saya asisten virtual Arvino. Ada yang bisa saya bantu?</p>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="userInput" placeholder="Ketik pesan..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
