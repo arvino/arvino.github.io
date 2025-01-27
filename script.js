@@ -35,16 +35,49 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Dark mode toggle
-const toggleDarkMode = () => {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+// Dark mode toggle with localStorage and system preference detection
+const darkModeToggle = document.querySelector('.dark-mode-toggle');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+const enableDarkMode = () => {
+    document.body.classList.add('dark-mode');
+    darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    localStorage.setItem('theme', 'dark');
 }
 
-// Check dark mode preference
-if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
+const disableDarkMode = () => {
+    document.body.classList.remove('dark-mode');
+    darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    localStorage.setItem('theme', 'light');
 }
+
+const toggleDarkMode = () => {
+    if (document.body.classList.contains('dark-mode')) {
+        disableDarkMode();
+    } else {
+        enableDarkMode();
+    }
+}
+
+// Check for saved theme preference or system preference
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'dark') {
+    enableDarkMode();
+} else if (currentTheme === 'light') {
+    disableDarkMode();
+} else if (prefersDarkScheme.matches) {
+    enableDarkMode();
+}
+
+// Listen for system theme changes
+prefersDarkScheme.addListener((e) => {
+    if (localStorage.getItem('theme')) return; // Skip if user has preference
+    if (e.matches) {
+        enableDarkMode();
+    } else {
+        disableDarkMode();
+    }
+});
 
 // Chatbot functionality
 const toggleChatbot = () => {
@@ -94,17 +127,19 @@ const addMessage = (type, message) => {
 }
 
 const getBotResponse = (message) => {
-    // Simple response logic
     message = message.toLowerCase();
     
     if (message.includes('halo') || message.includes('hi') || message.includes('hello')) {
-        return 'Halo! Ada yang bisa saya bantu?';
+        return 'Halo! Ada yang bisa saya bantu? Anda juga bisa menghubungi saya langsung melalui WhatsApp di nomor 085773023495';
+    }
+    else if (message.includes('whatsapp') || message.includes('wa') || message.includes('hubungi')) {
+        return 'Anda bisa menghubungi saya melalui WhatsApp di nomor 085773023495 atau klik link ini: https://wa.me/6285773023495';
     }
     else if (message.includes('pengalaman') || message.includes('kerja')) {
         return 'Saya memiliki pengalaman lebih dari 15 tahun di bidang IT, termasuk sebagai Project Manager, System Analyst, dan Developer.';
     }
-    else if (message.includes('kontak') || message.includes('hubungi')) {
-        return 'Anda bisa menghubungi saya melalui email: arvinozulka@gmail.com atau LinkedIn.';
+    else if (message.includes('kontak')) {
+        return 'Anda bisa menghubungi saya melalui:\nWhatsApp: 085773023495\nEmail: arvinozulka@gmail.com\nLinkedIn: linkedin.com/in/arvino-zulka/';
     }
     else if (message.includes('proyek') || message.includes('project')) {
         return 'Saya telah menangani berbagai proyek besar termasuk implementasi Big Data, pengembangan E-Commerce, dan sistem eLearning.';
@@ -115,4 +150,5 @@ const getBotResponse = (message) => {
     else {
         return 'Maaf, saya tidak mengerti pertanyaan Anda. Bisa diulangi dengan cara yang berbeda?';
     }
+} 
 } 
